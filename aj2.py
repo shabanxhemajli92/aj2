@@ -25,3 +25,7 @@ def gmail_send(subject, message, from_mail, to, password):
     msg['From']    = from_mail
     msg['To']      = to
     server.send_message(msg)
+
+with open("copy.txt","w") as file:
+    file.write("Your text here")
+ 
