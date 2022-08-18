@@ -13,19 +13,24 @@ init()
 
 
 #email function  
-def gmail_send(subject, message, from_mail, to, password):
-    global link
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(from_mail, password)
-    msg            = EmailMessage()
-    message        = f'{message}'
-    msg.set_content(message)
-    msg['Subject'] = subject
-    msg['From']    = from_mail
-    msg['To']      = to
-    server.send_message(msg)
+# def gmail_send(subject, message, from_mail, to, password):
+#     global link
+#     server = smtplib.SMTP('smtp.gmail.com', 587)
+#     server.starttls()
+#     server.login(from_mail, password)
+#     msg            = EmailMessage()
+#     message        = f'{message}'
+#     msg.set_content(message)
+#     msg['Subject'] = subject
+#     msg['From']    = from_mail
+#     msg['To']      = to
+#     server.send_message(msg)
 
-with open("copy.txt","w") as file:
-    file.write("Your text here")
+#Stores entries in a diary
+new_entry= input("Enter diary entry here >>>")
+
+now = datetime.datetime.today().strftime("%H:%M:%S %d-%m-%M")
+
+with open("copy.txt","a") as file:
+    file.write(now + " " + new_entry + "\n")
  
