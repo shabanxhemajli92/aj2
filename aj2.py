@@ -10,7 +10,8 @@ from email.message    import EmailMessage
 
 # initialzing colorama
 init()
-
+#date time variable
+now= datetime.datetime.today.strftime("%H:%M:%S %d-%m-%Y")
 
 #email function  
 # def gmail_send(subject, message, from_mail, to, password):
@@ -22,15 +23,24 @@ init()
 #     message        = f'{message}'
 #     msg.set_content(message)
 #     msg['Subject'] = subject
-#     msg['From']    = from_mail
+#     msg['From']    = from_mailread()
 #     msg['To']      = to
 #     server.send_message(msg)
 
+with open ("journal.txt","r") as f:
+    file_contents=f.read()
+print(file_contents)    
 #Stores entries in a diary
+
+print(Fore.LIGHTCYAN_EX+"")
+tprint("Awesome Journal",font="random")
+print("" + Style.RESET_ALL)
+
+
+#display current journal
+#art gui
 new_entry= input("Enter diary entry here >>>")
-
-now = datetime.datetime.today().strftime("%H:%M:%S %d-%m-%M")
-
-with open("copy.txt","a") as file:
-    file.write(now + " " + new_entry + "\n")
- 
+if new_entry!="":
+    with open("journal.txt","a") as file:
+        file.write(now + "" + new_entry + "\n")
+'''elif'''        
